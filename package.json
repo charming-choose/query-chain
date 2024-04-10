@@ -1,0 +1,37 @@
+{
+  "name": "@charming-choose/query-chain",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./plugins/*": {
+      "import": "./dist/plugins/index.js",
+      "require": "./dist/plugins/index.cjs"
+    }
+  },
+  "files": [
+    "dist/",
+    "types/"
+  ],
+  "scripts": {
+    "build": "node build.js"
+  },
+  "keywords": [],
+  "author": "cmchu",
+  "license": "ISC",
+  "dependencies": {
+    "hash.js": "^1.1.7",
+    "localforage": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.1.4",
+    "esbuild": "^0.17.19",
+    "tslib": "^2.6.2"
+  }
+}

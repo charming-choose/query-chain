@@ -16,7 +16,8 @@ export function sleep(time:number) {
   })
 }
 
-export function asyncData(promiseData: any): Promise<[any,any]> {
+type DealData = [null, any] | [any, null]
+export function asyncData(promiseData: any): Promise<DealData> {
   return new Promise((resolve) => {
     if(!isPromise(promiseData)) return resolve([promiseData, undefined])
 

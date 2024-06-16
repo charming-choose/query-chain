@@ -17,7 +17,8 @@ export default {
 
     options.errorRetry = {
       ...def_options,
-      ...errorRetry
+      ...errorRetry,
+      _params: params
     }
 
     return params
@@ -25,30 +26,29 @@ export default {
   },
 
   // 查询后
-  async onQueryed(result: any, options: { errorRetry: { checkError: (arg0: any) => any } }) {
-    if(!options?.errorRetry) return result
+  async onQueryed(response: any, options: { errorRetry: { checkError: (arg0: any) => any } }) {
+    if(!options?.errorRetry) return response
 
-    const isError = await options.errorRetry.checkError(result)
-    if(!isError) return result
-    return Promise.reject(result)
+    const isError = await options.errorRetry.checkError(response)
+    if(!isError) return response
+    return Promise.reject(response)
 
   },
 
   // 监听查询中的报错
-  async onError(error: any, options: { errorRetry: { checkError?: any; _retryCount: any; count?: any; interval?: any }; _params: any; _queryChain: { query: (arg0: any, arg1: any) => any } }) {
+  async onError(error: any, options: { errorRetry: { checkError?: any; _retryCount: any; count?: any; interval?: any, _params: any }; _params: any; _queryChain: { query: (arg0: any, arg1: any) => any } }) {
     if(!options?.errorRetry) return Promise.reject(error)
     
     const isError = await options.errorRetry.checkError(error)
     if(!isError) return error
 
-    const { count, _retryCount, interval } = options.errorRetry
-    debugger
+    const { count, _retryCount, interval, _params: params } = options.errorRetry
+
     if(_retryCount >= count) return Promise.reject(error)
 
     if(interval) await sleep(interval)
     
     options.errorRetry._retryCount  = _retryCount + 1
-    const params = options._params
     
     return options._queryChain.query(params, options)
   }

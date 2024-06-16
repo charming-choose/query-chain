@@ -1,9 +1,14 @@
 {
   "name": "@charming-choose/query-chain",
+  "author": "cmchu",
   "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
   "description": "",
-  "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "keywords": [],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
@@ -17,15 +22,17 @@
   },
   "files": [
     "dist/",
-    "types/"
+    "index.d.ts"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "node build.js"
   },
-  "keywords": [],
-  "author": "cmchu",
-  "license": "ISC",
   "dependencies": {
+    "@charming-choose/deferred-async-value": "^0.0.2",
     "hash.js": "^1.1.7",
     "localforage": "^1.10.0"
   },

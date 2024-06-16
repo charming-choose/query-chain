@@ -1,32 +1,23 @@
 {
   "compilerOptions": {
-    "resolveJsonModule": true,
-    "target": "es2018",
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noEmitOnError": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "strictPropertyInitialization": false,
-    "noFallthroughCasesInSwitch": false,
-    "skipDefaultLibCheck": false,
-    "inlineSourceMap": false,
-    "importHelpers": true,
-    "removeComments": true,
-    "esModuleInterop": true,
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "moduleResolution": "node",
-    "strict": true,
-    "isolatedModules": true,
-    "allowSyntheticDefaultImports": false,
-    "lib": ["esnext", "dom"],
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-    "baseUrl": "./"
+
+    /* Bundler mode */
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts", "types/*.d.ts"],
-  "exclude": ["node_modules", "**.d.ts"]
+  "include": ["lib"]
 }

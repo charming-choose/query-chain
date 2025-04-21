@@ -32,7 +32,7 @@ queryChain.query(params).then(response => response)
 - queryChain 内置了三个插件，分别为：并发查询控制 ``` concurrency ```, 查询缓存与合并``` duplicate ```, and 查询错误重试``` errorRetry ```。
 
 ```js
-import { concurrency, duplicate, errorRetry } from '@charming-choose/query-chain/plugins'
+import { concurrency, duplicate, errorRetry } from '@charming-choose/query-chain'
 const queryChain = new QueryChain(fetch).use(concurrency).use(duplicate).use(errorRetry)
 
 queryChain.query(params, {

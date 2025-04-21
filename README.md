@@ -31,7 +31,7 @@ queryChain.query(params).then(response => response)
 - QueryChain natively supports three plugins: concurrency control for parallel queries, caching and merging of duplicate queries, and automatic query error retries.
 
 ```js
-import { concurrency, duplicate, errorRetry } from '@charming-choose/query-chain/plugins'
+import { concurrency, duplicate, errorRetry } from '@charming-choose/query-chain'
 const queryChain = new QueryChain(fetch).use(concurrency).use(duplicate).use(errorRetry)
 
 queryChain.query(params, {

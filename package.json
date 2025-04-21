@@ -1,28 +1,21 @@
 {
   "name": "@charming-choose/query-chain",
   "author": "cmchu",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "type": "module",
   "description": "",
   "keywords": [],
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./index.d.ts",
   "exports": {
-    ".": {
-      "types": "./types/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./plugins/*": {
-      "import": "./dist/plugins/index.js",
-      "require": "./dist/plugins/index.cjs"
-    }
+    "types": "./index.d.ts",
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
   },
   "files": [
-    "dist/",
-    "index.d.ts"
+    "dist/"
   ],
   "publishConfig": {
     "access": "public",

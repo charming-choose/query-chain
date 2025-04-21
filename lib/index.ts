@@ -1,4 +1,7 @@
 import { asyncData, isFunction } from './utils/common'
+export { default as concurrency } from './plugins/concurrency' // 请求并发控制
+export { default as duplicate } from './plugins/duplicate' // 重复请求合并 请求缓存
+export { default as errorRetry } from './plugins/errorRetry' // 请求报错自动重试
 
 type Params = Record<string, any> // 请求参数
 type Response = any // 请求返回值
